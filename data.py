@@ -26,7 +26,7 @@ class DataForCreationOrder:
     "metroStation": 7,
     "phone": "+7 800 355 35 35",
     "rentTime": 5,
-    "deliveryDate": f"{tomorrow_date()}",
+    "deliveryDate": tomorrow_date,
     "comment": "Saske, come back to Konoha",
     "color": [
         "BLACK"
