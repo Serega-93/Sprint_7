@@ -22,7 +22,7 @@ def generation_data_order():
     "firstName": fake.first_name(),
     "lastName": fake.last_name(),
     "address": address,
-    "metroStation": fake.random_int(min=1, max=50),
+    "metroStation": fake.random_int(min=1, max=100),
     "phone": phone,
     "rentTime": fake.random_int(min=1, max=7),
     "deliveryDate": tomorrow_date,
