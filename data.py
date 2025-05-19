@@ -9,7 +9,7 @@ class Url:
     RECEIVING_ORDER_BY_NUMBER = '/api/v1/orders/track' # Получение id заказа по его номеру
     ACCEPT_THE_ORDER = '/api/v1/orders/accept' # Принять заказ
     RECEIVING_LIST_ORDERS = '/api/v1/orders' # Получение списка заказов
-    DELETE_COURIER = '/api/v1/courier/:id' # Удалить курьера
+    DELETE_COURIER = '/api/v1/courier' # Удалить курьера
 
 class DataForCreationCourier:
     CREATION_COURIER_BODY = {
