@@ -21,9 +21,8 @@ class OrderMethods:
         return requests.put(f'{Url.BASE_URL}{Url.ACCEPT_THE_ORDER}/{track}', params=params)
 
     @staticmethod
-    def receiving_list_orders(courier_id):
-        params = {"courierId": courier_id}
-        return requests.get(f'{Url.BASE_URL}{Url.RECEIVING_LIST_ORDERS}', params=params)
+    def receiving_list_orders():
+        return requests.get(f'{Url.BASE_URL}{Url.RECEIVING_LIST_ORDERS}')
 
     @staticmethod
     def cancel_order(track):
