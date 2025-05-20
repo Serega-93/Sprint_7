@@ -40,7 +40,7 @@ def creating_courier_and_creating_order():
     courier_id = CourierMethods.receiving_id_courier(login, password).json()["id"]
     order_body = DataForCreationOrder.CREATION_ORDER_BODY
     track = OrderMethods.creation_order(order_body).json()["track"]
-    order_id = OrderMethods.receiving_id_order_by_number(track)
+    order_id = OrderMethods.receiving_id_order_by_number(track).json()["order"]["id"]
     yield [courier_id, order_id]
     CourierMethods.deleted_courier(courier_id)
 

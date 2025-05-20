@@ -13,7 +13,7 @@ class OrderMethods:
     def receiving_id_order_by_number(track):
         params = {"t": track}
         order_id = requests.get(f'{Url.BASE_URL}{Url.RECEIVING_ORDER_BY_NUMBER}', params=params)
-        return order_id.json()["order"]["id"]
+        return order_id
 
     @staticmethod
     def accept_the_order(order_id, courier_id):
