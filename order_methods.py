@@ -7,7 +7,7 @@ class OrderMethods:
     @staticmethod
     def creation_order(body):
         number_track = requests.post(f'{Url.BASE_URL}{Url.CREATION_ORDER}', json=body)
-        return number_track.json()["track"]
+        return number_track
 
     @staticmethod
     def receiving_order_by_number(track):

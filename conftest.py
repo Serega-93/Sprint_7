@@ -20,3 +20,13 @@ def cleanup_order(request):
     track = None
     yield track
     OrderMethods.cancel_order(track)
+
+@pytest.fixture
+def creating_courier_and_receiving_id():
+    body = DataForCreationCourier.CREATION_COURIER_BODY
+    CourierMethods.created_courier(body)
+    login = body["login"]
+    password = body["password"]
+    courier_id = CourierMethods.receiving_id_courier(login, password).json()["id"]
+    yield courier_id
+    CourierMethods.deleted_courier(courier_id)
