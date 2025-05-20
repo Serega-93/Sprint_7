@@ -14,9 +14,9 @@ class Url:
 
 class DataForCreationCourier:
     CREATION_COURIER_BODY = {
-    "login": "qa_courier",
-    "password": "1234",
-    "firstName": "saske"
+    "login": "qaa_courier",
+    "password": "12345",
+    "firstName": "sergei"
 }
 
 class DataForCreationOrder:
@@ -28,7 +28,7 @@ class DataForCreationOrder:
     "phone": "+7 800 355 35 35",
     "rentTime": 5,
     "deliveryDate": tomorrow_date,
-    "comment": "Saske, come back to Konoha",
+    "comment": "Hellow",
     "color": [
         "BLACK"
     ]

@@ -11,9 +11,10 @@ class CourierMethods:
 
     @staticmethod
     def receiving_id_courier(login, password):
-        body = {'Login': login,
-                'password': password
-                }
+        body = {
+        "login": login,
+        "password": password
+        }
         courier_id = requests.post(f'{Url.BASE_URL}{Url.RECEIVING_ID_COURIER}', json=body)
         return courier_id.json()["id"]
 

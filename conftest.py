@@ -1,13 +1,12 @@
 import pytest
 
 from courier_methods import CourierMethods
-from generators import generation_data_courier, generation_data_order
-from order_methods import OrderMethods
+from data import DataForCreationCourier
 
 
 @pytest.fixture
 def generation_courier_data():
-    courier_body = generation_data_courier()
+    courier_body = DataForCreationCourier.CREATION_COURIER_BODY
     login = courier_body["login"]
     password = courier_body["password"]
     yield [courier_body, login, password]
