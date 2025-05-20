@@ -1,8 +1,8 @@
 import allure
 
 from courier_methods import CourierMethods
-from data import DataForCreationCourier
-from order_methods import OrderMethods
+from generator import DataForCreationCourier
+
 
 
 class TestDeletedCourier:
@@ -10,7 +10,7 @@ class TestDeletedCourier:
     @allure.title("Успешное удаление курьера")
     def test_successful_deleted_courier(self):
         with allure.step("Создаём курьера"):
-            body = DataForCreationCourier.CREATION_COURIER_BODY
+            body = DataForCreationCourier.generate_body()
             CourierMethods.created_courier(body)
         with allure.step("Получаем номер id курьера"):
             login = body["login"]

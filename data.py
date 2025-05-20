@@ -1,3 +1,5 @@
+
+
 from helpers import TOMORROW_DATE
 
 
@@ -11,13 +13,6 @@ class Url:
     ACCEPT_THE_ORDER = '/api/v1/orders/accept' # Принять заказ
     RECEIVING_LIST_ORDERS = '/api/v1/orders' # Получение списка заказов
     CANCEL_ODER = '/api/v1/orders/cancel' # Отменить заказ
-
-class DataForCreationCourier:
-    CREATION_COURIER_BODY = {
-    "login": "qaa_courier",
-    "password": "12345",
-    "firstName": "sergei"
-}
 
 class NonExistentDataCourier:
     NON_EXISTENT_COURIER_BODY = {

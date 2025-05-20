@@ -2,7 +2,7 @@ import allure
 import pytest
 
 from courier_methods import CourierMethods
-from data import DataForCreationCourier
+from generator import DataForCreationCourier
 
 
 class TestCreatingCourier:
@@ -24,7 +24,7 @@ class TestCreatingCourier:
     @allure.title("Ошибка '400' при создании курьера с пустым обязательным полем")
     def test_error_when_creating_courier_with_empty_required_field(self, field, value):
         with allure.step("Создаём курьера с пустым полем"):
-            courier = DataForCreationCourier.CREATION_COURIER_BODY
+            courier = DataForCreationCourier.generate_body()
             courier[field] = value
             response = CourierMethods.created_courier(courier)
             assert response.status_code == 400

@@ -1,13 +1,14 @@
 import pytest
 
 from courier_methods import CourierMethods
-from data import DataForCreationCourier, DataForCreationOrder
+from data import  DataForCreationOrder
+from generator import DataForCreationCourier
 from order_methods import OrderMethods
 
 
 @pytest.fixture
 def generation_courier_data():
-    courier_body = DataForCreationCourier.CREATION_COURIER_BODY
+    courier_body = DataForCreationCourier.generate_body()
     login = courier_body["login"]
     password = courier_body["password"]
     yield [courier_body, login, password]
@@ -23,7 +24,7 @@ def cleanup_order(request):
 
 @pytest.fixture
 def creating_courier_and_receiving_id():
-    body = DataForCreationCourier.CREATION_COURIER_BODY
+    body = DataForCreationCourier.generate_body()
     CourierMethods.created_courier(body)
     login = body["login"]
     password = body["password"]
@@ -33,7 +34,7 @@ def creating_courier_and_receiving_id():
 
 @pytest.fixture
 def creating_courier_and_creating_order():
-    courier_body = DataForCreationCourier.CREATION_COURIER_BODY
+    courier_body = DataForCreationCourier.generate_body()
     CourierMethods.created_courier(courier_body)
     login = courier_body["login"]
     password = courier_body["password"]
