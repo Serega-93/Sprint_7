@@ -19,6 +19,12 @@ class DataForCreationCourier:
     "firstName": "sergei"
 }
 
+class NonExistentDataCourier:
+    NON_EXISTENT_COURIER_BODY = {
+        "login": "non_existent",
+        "password": "11111"
+    }
+
 class DataForCreationOrder:
     CREATION_ORDER_BODY = {
     "firstName": "Sergei",

@@ -15,8 +15,8 @@ class CourierMethods:
         "login": login,
         "password": password
         }
-        courier_id = requests.post(f'{Url.BASE_URL}{Url.RECEIVING_ID_COURIER}', json=body)
-        return courier_id.json()["id"]
+        response = requests.post(f'{Url.BASE_URL}{Url.RECEIVING_ID_COURIER}', json=body)
+        return response
 
     @staticmethod
     def deleted_courier(courier_id):
