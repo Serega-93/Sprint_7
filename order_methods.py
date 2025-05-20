@@ -26,6 +26,6 @@ class OrderMethods:
         return requests.get(f'{Url.BASE_URL}{Url.RECEIVING_LIST_ORDERS}', params=params)
 
     @staticmethod
-    def cancel_oder(track):
+    def cancel_order(track):
         params = {"track": track}
         return requests.put(f'{Url.BASE_URL}{Url.CANCEL_ODER}', params=params)

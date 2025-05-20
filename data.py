@@ -1,4 +1,4 @@
-from helpers import tomorrow_date
+from helpers import TOMORROW_DATE
 
 
 class Url:
@@ -33,9 +33,7 @@ class DataForCreationOrder:
     "metroStation": 7,
     "phone": "+7 800 355 35 35",
     "rentTime": 5,
-    "deliveryDate": tomorrow_date,
+    "deliveryDate": TOMORROW_DATE,
     "comment": "Hellow",
-    "color": [
-        "BLACK"
-    ]
+    "color": []
 }
