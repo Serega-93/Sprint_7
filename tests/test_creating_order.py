@@ -17,4 +17,5 @@ class TestCreatingOrder:
             track = response.json()["track"]
             assert response.status_code == 201
             assert track is not None
-            request.node.funcargs["cleanup_order"] = track
+
+        request.node.funcargs["cleanup_order"] = track

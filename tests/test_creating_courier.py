@@ -15,10 +15,9 @@ class TestCreatingCourier:
             assert response.status_code == 201 and response.json() == DataResponse.TWO_HUNDRED_OK
 
     @allure.title("Ошибка '409' при создании двух одинаковых курьеров")
-    def test_error_when_creating_two_identical_couriers(self, generation_courier_data):
+    def test_error_when_creating_two_identical_couriers(self, creating_courier):
         with allure.step("Создаём двух одинаковых курьеров"):
-            response = CourierMethods.created_courier(generation_courier_data[0])
-            response = CourierMethods.created_courier(generation_courier_data[0])
+            response = CourierMethods.created_courier(creating_courier[0])
             assert response.status_code == 409
 
     @pytest.mark.parametrize("field, value", [("login", ""),("password", "")])

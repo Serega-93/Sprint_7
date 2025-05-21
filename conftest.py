@@ -5,6 +5,17 @@ from data import  DataForCreationOrder
 from generator import DataForCreationCourier
 from order_methods import OrderMethods
 
+@pytest.fixture
+def creating_courier():
+    courier_body = DataForCreationCourier.generate_body()
+    CourierMethods.created_courier(courier_body)
+    login = courier_body["login"]
+    password = courier_body["password"]
+    yield [courier_body, login, password]
+    courier_id = CourierMethods.receiving_id_courier(login, password)
+    value = courier_id.json()["id"]
+    CourierMethods.deleted_courier(value)
+
 
 @pytest.fixture
 def generation_courier_data():
@@ -44,4 +55,3 @@ def creating_courier_and_creating_order():
     order_id = OrderMethods.receiving_id_order_by_number(track).json()["order"]["id"]
     yield [courier_id, order_id]
     CourierMethods.deleted_courier(courier_id)
-

@@ -15,7 +15,8 @@ class TestReceivingOrderByTrack:
             response = OrderMethods.receiving_id_order_by_number(track)
             response_data = response.json()
             assert response.status_code == 200 and "order" in response_data
-            request.node.funcargs["cleanup_order"] = track
+
+        request.node.funcargs["cleanup_order"] = track
 
     @allure.title("Ошибка при получении заказа без номера")
     def test_error_receiving_order_without_track(self, cleanup_order, request):
@@ -26,7 +27,8 @@ class TestReceivingOrderByTrack:
             response = OrderMethods.receiving_id_order_by_number(None)
             response_data = response.json()
             assert response_data == DataResponse.FOUR_HUNDRED_ERROR
-            request.node.funcargs["cleanup_order"] = track
+
+        request.node.funcargs["cleanup_order"] = track
 
     @allure.title("Ошибка при получении заказа c несуществующим номером")
     def test_error_receiving_order_non_existent_track(self, cleanup_order, request):
@@ -37,5 +39,5 @@ class TestReceivingOrderByTrack:
             response = OrderMethods.receiving_id_order_by_number(999999)
             response_data = response.json()
             assert response_data == DataResponse.FOUR_HUNDRED_FOUR_ERROR_ORDER_NOT_FOUND
-            request.node.funcargs["cleanup_order"] = track
 
+        request.node.funcargs["cleanup_order"] = track
