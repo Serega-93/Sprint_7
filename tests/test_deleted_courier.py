@@ -24,5 +24,6 @@ class TestDeletedCourier:
 
     @allure.title("Ошибка '404' при отправки запроса с несуществующем id на удаление курьера")
     def test_error_request_without_id(self, creating_courier_and_receiving_id):
-        response = CourierMethods.deleted_courier(1).json()
-        assert response == DataResponse.FOUR_HUNDRED_FOUR_ERROR_COURIER_NOT_ID
+        with allure.step("Удаляем курьера"):
+            response = CourierMethods.deleted_courier(1).json()
+            assert response == DataResponse.FOUR_HUNDRED_FOUR_ERROR_COURIER_NOT_ID
