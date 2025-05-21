@@ -36,5 +36,7 @@ class DataForCreationOrder:
 class DataResponse:
     TWO_HUNDRED_OK = {"ok":True}
     FOUR_HUNDRED_ERROR = {'code': 400, 'message': 'Недостаточно данных для поиска'}
-    FOUR_HUNDRED_FOUR_ERROR_ORDER = {'code': 404, 'message': 'Заказа с таким id не существует'}
-    FOUR_HUNDRED_FOUR_ERROR_COURIER = {'code': 404, 'message': 'Курьера с таким id не существует'}
+    FOUR_HUNDRED_FOUR_ERROR_ORDER_NOT_EXIST = {'code': 404, 'message': 'Заказа с таким id не существует'}
+    FOUR_HUNDRED_FOUR_ERROR_COURIER_NOT_EXIST = {'code': 404, 'message': 'Курьера с таким id не существует'}
+    FOUR_HUNDRED_FOUR_ERROR_COURIER_NOT_ID = {"code": 404, "message": "Курьера с таким id нет."}
+    FOUR_HUNDRED_FOUR_ERROR_ORDER_NOT_FOUND = {'code': 404, 'message': 'Заказ не найден'}

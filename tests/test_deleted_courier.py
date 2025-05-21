@@ -1,6 +1,7 @@
 import allure
 
 from courier_methods import CourierMethods
+from data import DataResponse
 from generator import DataForCreationCourier
 
 
@@ -19,9 +20,9 @@ class TestDeletedCourier:
         with allure.step("Удаляем курьера"):
             response = CourierMethods.deleted_courier(courier_id)
             response_data = response.json()
-            assert response.status_code == 200 and response_data == {"ok": True}
+            assert response.status_code == 200 and response_data == DataResponse.TWO_HUNDRED_OK
 
     @allure.title("Ошибка '404' при отправки запроса с несуществующем id на удаление курьера")
     def test_error_request_without_id(self, creating_courier_and_receiving_id):
         response = CourierMethods.deleted_courier(1).json()
-        assert response == {"code": 404, "message": "Курьера с таким id нет."}
+        assert response == DataResponse.FOUR_HUNDRED_FOUR_ERROR_COURIER_NOT_ID

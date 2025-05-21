@@ -2,6 +2,7 @@ import allure
 import pytest
 
 from courier_methods import CourierMethods
+from data import DataResponse
 from generator import DataForCreationCourier
 
 
@@ -11,7 +12,7 @@ class TestCreatingCourier:
     def test_successful_creation_courier(self, generation_courier_data):
         with allure.step("Создаём курьера"):
             response = CourierMethods.created_courier(generation_courier_data[0])
-            assert response.status_code == 201 and response.json() == {"ok": True}
+            assert response.status_code == 201 and response.json() == DataResponse.TWO_HUNDRED_OK
 
     @allure.title("Ошибка '409' при создании двух одинаковых курьеров")
     def test_error_when_creating_two_identical_couriers(self, generation_courier_data):

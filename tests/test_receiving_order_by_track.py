@@ -1,6 +1,6 @@
 import allure
 
-from data import DataForCreationOrder
+from data import DataForCreationOrder, DataResponse
 from order_methods import OrderMethods
 
 
@@ -25,7 +25,7 @@ class TestReceivingOrderByTrack:
         with allure.step("Получение заказа"):
             response = OrderMethods.receiving_id_order_by_number(None)
             response_data = response.json()
-            assert response_data == {'code': 400, 'message': 'Недостаточно данных для поиска'}
+            assert response_data == DataResponse.FOUR_HUNDRED_ERROR
             request.node.funcargs["cleanup_order"] = track
 
     @allure.title("Ошибка при получении заказа c несуществующим номером")
@@ -36,6 +36,6 @@ class TestReceivingOrderByTrack:
         with allure.step("Получение заказа"):
             response = OrderMethods.receiving_id_order_by_number(999999)
             response_data = response.json()
-            assert response_data == {'code': 404, 'message': 'Заказ не найден'}
+            assert response_data == DataResponse.FOUR_HUNDRED_FOUR_ERROR_ORDER_NOT_FOUND
             request.node.funcargs["cleanup_order"] = track
 
