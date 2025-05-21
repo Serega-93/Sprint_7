@@ -6,7 +6,7 @@
 ## <h>Когорта: 20fs</h>
 <hr>
 
-## <h>Project: API Testing NYandex.Scooter</h>
+## <h>Project: API Testing Yandex.Scooter</h>
 
 ## <h>Инструкция по запуску:</h>
 
