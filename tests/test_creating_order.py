@@ -15,7 +15,6 @@ class TestCreatingOrder:
             body["color"] = color
             response = OrderMethods.creation_order(body)
             track = response.json()["track"]
+            request.node.funcargs["cleanup_order"] = track
             assert response.status_code == 201
             assert track is not None
-
-        request.node.funcargs["cleanup_order"] = track
